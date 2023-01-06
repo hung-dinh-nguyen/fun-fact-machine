@@ -27,4 +27,4 @@ Webpage Structure
 ###    1. Title and Summary 
 ###    2. 3 Major Indexes in 3 separate columns side-by-side  
 ###    3. Numbers API Math and trivia will be underneath each index value 
-###    4. Numbers API Date will be under the 3 Major Indexes spanning the 3 columns width 
+###    4. Numbers API Date will be under the 3 Major Indexes spanning the 3 columns width  
