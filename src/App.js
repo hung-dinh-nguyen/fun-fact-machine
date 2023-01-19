@@ -60,7 +60,7 @@ class App extends React.Component{
           </div>
          
         </div>
-        <UrlParser input={this.state.stockTicker} onChange={this.handleChange} onClick={this.stockDataFinder}/>
+        <UrlParser stockTicker={this.state.stockTicker} onChange={this.handleChange} onClick={this.stockDataFinder}/>
     </div>
     );
   }
