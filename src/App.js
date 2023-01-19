@@ -2,6 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const stockTracker = ({ticker}) => {
+
+    let currentDate = new Date(); 
+    currentDate.setDate(currentDate.getDate() - 1);
+    yesterdayDate = currentDate.toJSON().slice(0, 10); 
+    
+    fetchString = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
+    
+    var stockData
+    
+    fetch(fetchString)
+    .then((response) => response.json()) 
+    .then((data) => stockData = data) 
+    
+  }; 
+
+  
   return (
     <div className="App">
       <header className="App-header">

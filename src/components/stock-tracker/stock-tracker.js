@@ -1,6 +1,6 @@
 import './stock-tracker.css';
 
-const StockTracker = ({ticker}) => {
+const stockTracker = ({ticker}) => {
 
     let currentDate = new Date(); 
     currentDate.setDate(currentDate.getDate() - 1);
@@ -10,6 +10,7 @@ const StockTracker = ({ticker}) => {
     fetchString = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
     console.log(fetchString);
     
+var stockData
     fetch(fetchString)
     .then((response) => response.json()) 
     .then((data) => console.log(data)) 
@@ -17,4 +18,4 @@ const StockTracker = ({ticker}) => {
     
 }
 
-export default StockTracker; 
+export default stockTracker; 
