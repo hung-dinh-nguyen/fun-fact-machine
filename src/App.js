@@ -6,8 +6,8 @@ class App extends React.Component{
   constructor(props) {
       super(props); 
       this.state = {
-          input: "Enter URLs Here",
-          stockData: "",
+        stockTicker: "",
+        stockData: "",
       }; 
       this.handleChange = this.handleChange.bind(this);
       this.stockDataFinder = this.stockDataFinder.bind(this);
@@ -15,7 +15,7 @@ class App extends React.Component{
 
   handleChange(e) {
       this.setState({
-          input: e.target.value
+        stockTicker: e.target.value
       }); 
       console.log(this.state.input)
   }
@@ -62,21 +62,17 @@ class App extends React.Component{
     return (
     <div className="App">
         <div className="intro">
-          <h1>Multi-URL Opener</h1>
-            <p>Tool to Open Multiple URLs at Once!</p>
+          <h1>TITLE</h1>
+            <p>SHORT DESCRIPTION </p>
           <div className="instructions">
             <h2>Instructions</h2>
               <ol>
-                <li>Enter one full URL address per line</li>
-                <li>Make sure to allow pop-ups and redirects for this site</li>
-                <li>Click on "PREVIEW" to create a numbered list of links</li>
-                <li>Press on "OPEN" to open all URLs in new tabs</li>
+                <li></li>
               </ol>
           </div>
          
         </div>
-        <UrlParser input={this.state.input} onChange={this.handleChange} onClick={this.parser}/>
-        <Previewer preview={this.state.preview} onClick={this.opener}/> 
+        <UrlParser input={this.state.stockTicker} onChange={this.handleChange} onClick={this.stockDataFinder}/>
     </div>
     );
   }

@@ -1,43 +1,25 @@
-import React, { useState } from "react";
-import { AsyncPaginate } from "react-select-async-paginate";
+import './search.css'
 
-const Search = ({ onSearchChange }) => {
-    const [search, setSearch] = useState(null)
 
-    const loadOptions = (inputValue) => {
-        return fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions)
-            .then(response => response.json())
-            .then(response => {
-                return {
-                    options: response.data.map((city) => {
-                        return {
-                            value: `${city.latitude} ${city.longitude}`,
-                            label: `${city.name}, ${city.countryCode}`,
-                        } 
-                    })
-                }
-            })
-            .catch(err => console.error(err));
-    }
-
-    const handleOnChange = (searchData) => {
-        setSearch(searchData);
-        onSearchChange(searchData);
-    }
-
+const Search = (props) => {
     return (
-
-        <AsyncPaginate
-            placeholder="Search for Stock Ticker"
-            debounceTimeout={600}
-            value={search}
-            onChange={handleOnChange}
-            loadOptions={loadOptions}
-        />
+        <div className='search-div'>
+            <h2>Search Ticker Symbol</h2>
+            <textarea 
+                id='search-text'
+                className='serach-text'
+                onChange={props.onChange}
+                type='text'
+                value={props.stockTicker}
+            />
+            <button 
+                id='search-button'
+                className='search-button'
+                onClick={props.onClick}
+            >Search</button>
+        </div>
     )
-}
-
-
+};
 
 export default Search;
 
