@@ -6,8 +6,13 @@ console.log(yesterdayDate);
 
 let ticker = "SPY";
 
-stockFetch = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
+fetchString = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
 
-var stockData = fetch(stockFetch);
+async function fetchStockData() {
+  let response = await fetch(fetchString);
+  let data = await response.json();
+  console.log(data);
+}
 
-console.log(stockData); 
+var stockData = fetchStockData();
+console.log(stockData) 

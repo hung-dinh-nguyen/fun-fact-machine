@@ -3,20 +3,25 @@ import './App.css';
 
 function App() {
 
-  const stockTracker = ({ticker}) => {
+  const stockDataFinder = ({ticker}) => {
 
     let currentDate = new Date(); 
     currentDate.setDate(currentDate.getDate() - 1);
     yesterdayDate = currentDate.toJSON().slice(0, 10); 
     
-    fetchString = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
+    stockFetch = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
     
-    var stockData
-    
-    fetch(fetchString)
-    .then((response) => response.json()) 
-    .then((data) => stockData = data) 
-    
+    var stockData;
+
+    fetch(stockFetch)
+      .then(res => res.json())
+      .then(data => {
+        stockData = data;
+       })
+      .then(() => {
+        console.log(stockData);
+       });
+       
   }; 
 
   
