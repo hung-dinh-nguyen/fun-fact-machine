@@ -45,18 +45,6 @@ class App extends React.Component{
        })
   };
  
-  opener() {
-    const re_url = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(:[0-9]+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/ig
-
-    let input = this.state.input;
-    var urls = input.match(re_url)
-
-    console.log(urls);
-
-    urls.forEach(url => {
-      window.open(url)
-    })
-  } 
  
   render() {
     return (
