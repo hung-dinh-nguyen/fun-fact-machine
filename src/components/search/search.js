@@ -7,7 +7,7 @@ const Search = (props) => {
             <h2>Search Ticker Symbol</h2>
             <textarea 
                 id='search-text'
-                className='serach-text'
+                className='search-text'
                 onChange={props.onChange}
                 type='text'
                 value={props.stockTicker}
