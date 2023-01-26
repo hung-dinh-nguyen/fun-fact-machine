@@ -41,11 +41,12 @@ class App extends React.Component{
         stockData = data;
         })
       .then(() => {
-        console.log(stockData);
-        })
-
         this.setState({
-        stockData: stockData
+          stockData: stockData
+          })
+      })
+      .then(() => {
+        console.log(stockData);
         })
         
   };
