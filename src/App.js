@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import StockInfo from 'stock-info.js'; 
-import Search from 'search.js'; 
+import StockInfo from './components/stock-info/stock-info.js'; 
+import Search from './components/search/search.js'; 
+import React from 'react';
 import './App.css';
 
 
@@ -27,24 +27,27 @@ class App extends React.Component{
 
     let currentDate = new Date(); 
     currentDate.setDate(currentDate.getDate() - 1);
-    yesterdayDate = currentDate.toJSON().slice(0, 10); 
+
+    var yesterdayDate = currentDate.toJSON().slice(0, 10); 
     
-    stockFetch = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
-    
+    var stockFetch = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
+    console.log(stockFetch); 
+
     var stockData;
 
     fetch(stockFetch)
       .then(res => res.json())
       .then(data => {
         stockData = data;
-       })
+        })
       .then(() => {
         console.log(stockData);
-       })
+        })
 
-       this.setState({
+        this.setState({
         stockData: stockData
-       })
+        })
+        
   };
  
  
