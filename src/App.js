@@ -19,18 +19,18 @@ class App extends React.Component{
       this.setState({
         stockTicker: e.target.value
       }); 
-      console.log(this.state.input)
+      console.log(this.state.stockTicker)
   }
 
 
-  stockDataFinder = ({ticker}) => {
+  stockDataFinder = ({}) => {
 
     let currentDate = new Date(); 
-    currentDate.setDate(currentDate.getDate() - 1);
+    currentDate.setDate(currentDate.getDate() - 2);
 
     var yesterdayDate = currentDate.toJSON().slice(0, 10); 
     
-    var stockFetch = `https://api.polygon.io/v1/open-close/${ticker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
+    var stockFetch = `https://api.polygon.io/v1/open-close/${this.state.stockTicker}/${yesterdayDate}?adjusted=true&apiKey=GTg5Bir0PyXXJNO2EXN5syHMW9blMFdv`
     console.log(stockFetch); 
 
     var stockData;
