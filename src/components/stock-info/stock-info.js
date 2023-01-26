@@ -4,24 +4,24 @@ const StockInfo = (props) => {
     return (
 
         <div className='stockinfo-div'>
-            <h2
+            <textarea
                 id='stockinfo-text'
                 className='stockinfo-text'
                 type='text'
                 value={props.stockTicker}
             />
 
-            <p
+            <textarea
                 id='opening-value'
                 className='opening-value'
                 type='text'
-                value={props.stockData}
+                value={props.stockData.open}
             />
-            <p
+            <textarea
                 id='closing-value'
                 className='closing-value'
                 type='text'
-                value={props.stockData}
+                value={props.stockData.close}
             />
     
         </div>
