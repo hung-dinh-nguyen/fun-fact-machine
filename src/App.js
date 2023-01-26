@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+import StockInfo from 'stock-info.js'; 
+import Search from 'search.js'; 
 import './App.css';
 
 
@@ -60,7 +62,8 @@ class App extends React.Component{
           </div>
          
         </div>
-        <UrlParser stockTicker={this.state.stockTicker} onChange={this.handleChange} onClick={this.stockDataFinder}/>
+        <Search onChange={this.handleChange} onClick={this.stockDataFinder} /> 
+        <StockInfo stockTicker={this.state.stockTicker} stockData={this.state.stockData} />
     </div>
     );
   }
